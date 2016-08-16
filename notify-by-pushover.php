@@ -99,8 +99,13 @@ switch( $state )
 
    case 'DOWN':
    case 'CRITICAL':
-        $priority = PO_PRI_HIGH;
-        break;
+        if ($type == "ACKNOWLEDGEMENT") {
+           $priority = PO_PRI_NORMAL;
+        } else {
+           $priority = PO_PRI_HIGH;
+        }
+	break;
+
 
     default:
         $priority = PO_PRI_NORMAL;
